@@ -1,0 +1,25 @@
+{
+  "name": "ushijima-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryomaD1225/ushijima-bot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ryomaD1225/ushijima-bot/issues"
+  },
+  "homepage": "https://github.com/ryomaD1225/ushijima-bot#readme",
+  "dependencies": {
+    "@line/bot-sdk": "^6.6.0",
+    "express": "^4.16.4"
+  }
+}
