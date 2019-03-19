@@ -3,7 +3,7 @@
 const line = require('@line/bot-sdk');
 const express = require('express');
 
-const defaultAccessToken = 'PS2uwMMzJqD1VhKeggCYoQXuS8N1XmQel8U5kfBnww1bh5VBGZvXFMTH0U08IBlMuwym/nFlKC1mG+OdE26JCPdpY0gvzY6UvhgVHxTusSSmfyMueu8KKhHTAWOG6lcPg5GnUMX4MKfdV24EARzt8QdB04t89/1O/w1cDnyilFU=';
+const defaultAccessToken = 'pvrOp3FU+E2M3bM5HzAvz+m8rh1er/aLXrYRmf38m63SME6AYlKTjEFQDcEw5S83uwym/nFlKC1mG+OdE26JCPdpY0gvzY6UvhgVHxTusSQ/iGpQ2AgesP0tNqeRc+x8pbPYd0jH6JOXm71sm0MVzwdB04t89/1O/w1cDnyilFU=';
 const defaultSecret = 'a624fb16c0828e450002e369a918e859';
 
 // create LINE SDK config from env variables
