@@ -67,7 +67,7 @@ function handleEvent(event) {
   console.log( randam );
   
   // const echo = { type: 'text', text: event.message.text };
-   const echo = { type: 'text', text: "金が全てじゃないけど、ほとんどの問題は金で解決できるだろ" };
+   const echo = { type: 'text', text: randam };
 
   // use reply API
   return client.replyMessage(event.replyToken, echo);
