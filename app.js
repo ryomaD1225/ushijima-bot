@@ -3,12 +3,21 @@
 // line sdkを使うためのsdkを読み込み
 const line = require('@line/bot-sdk');
 
+
+const randomNumber = require("random-number-csprng");//暗号論的疑似乱数生成関数を生成するために追記(https://qiita.com/gakuri/items/27cca8f0fa28b78ddeca)
+var Promise = require("bluebird"); //Bluebird は Promise を扱うためのライブラリ(https://qiita.com/masakielastic/items/025b67d01b3501a5c3fb)
+
+
 // expressはnode.jsで使用できるwebアプリケーションフレームワーク(rails的なやつ)
 const express = require('express');
+
+
 
 // line Messenger登録時にもらえるトークン諸々
 const defaultAccessToken = 'pvrOp3FU+E2M3bM5HzAvz+m8rh1er/aLXrYRmf38m63SME6AYlKTjEFQDcEw5S83uwym/nFlKC1mG+OdE26JCPdpY0gvzY6UvhgVHxTusSQ/iGpQ2AgesP0tNqeRc+x8pbPYd0jH6JOXm71sm0MVzwdB04t89/1O/w1cDnyilFU=';
 const defaultSecret = 'a624fb16c0828e450002e369a918e859';
+
+
 
 // config変数に対して上記で設定したトークン類か、
 // HerokuのSettings / Config Variables にCHANNEL_ACCESS_TOKENとCHANNEL_SECRETに設定したトークン類を取得。
@@ -16,6 +25,8 @@ const config = {
   channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN || defaultAccessToken,
   channelSecret: process.env.CHANNEL_SECRET || defaultSecret,
 };
+
+
 
 // newを使うとなんちゃってインスタンスを生成できる。なんちゃってな理由はjavascript自体がプロトタイプベースのオブジェクト指向を採用しているので、クラスがない。
 // オブジェクトしかない。今回生成しているなんちゃってインスタンス名はline、
@@ -37,30 +48,43 @@ app.get('/', (req, res) => {
 
 
 // app.post('/webhook')にアクセスする度に呼び出されるコールバック関数
-// app.get()と同様にreqとresを引数に持ち,
+// app.get()と同様にreqとresを引数に持つ
 app.post('/webhook', line.middleware(config), (req, res) => {
-  Promise // Promiseは非同期処理を操作できる。　非同期処理の成功時(resolve)、失敗時(reject)の処理を明示的に書くことが出来る。　
-    .all(req.body.events.map(handleEvent))  // handEventは以下で定義されている
-    // res.jsonはJSON レスポンスを送信する。
-    .then((result) => res.json(result));
+  Promise // Promiseは非同期処理を操作できる。非同期処理の成功時(resolve)、失敗時(reject)の処理を明示的に書くことが出来る。
+  
+    .all(req.body.events.map(handleEvent)) // Promise.all()は、引数に指定した全てのPromiseを実行するメソッド。全てのPromiseが履行(fulfilled)になるか、または1つでも拒否(rejected)になった時点で処理が終了します。
+
+    .then((result) => res.json(result)); // thenでresolveされた時の処理
 });
 
-// event handler
-function handleEvent(event) {
-  if (event.type !== 'message' || event.message.type !== 'text') {
-    // ignore non-text-message event
+//==========================以下をいったん削除=======================
+
+//============================test=================================
+
+function handleEvent(event){
+  
+  if(event.type.message==='text'){
+    
+    const echo = event.type.message;
+    
+    Promise.try(function() {
+        return randomNumber(10,30);
+    }).then(function(number){
+       client.replyMessage(event.replyToken, number);
+    }).catch({code:"randomNumber Generating Error"}, function(err){
+       client.replyMessage(event.replyToken, echo);
+    });
+    
+  }else{
     return Promise.resolve(null);
   }
-
-  // create a echoing text message
-  // const echo = { type: 'text', text: event.message.text };
-   const echo = { type: 'text', text: "金が全てじゃないけど、ほとんどの問題は金で解決できるだろ" };
-
-  // use reply API
-  return client.replyMessage(event.replyToken, echo);
 }
 
+
+//=================================================================
+
 // listen on port
+// Expressの起動
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`listening on ${port}`);
