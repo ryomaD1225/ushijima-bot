@@ -63,7 +63,7 @@ function handleEvent(event) {
     return Promise.resolve(null);
   }
   
-   var randam = Math.floor(Math.random() * 14);
+   var randam = Math.floor(Math.random() * 16);
    
    if(randam === 0){
     randam = "一度無くした信用取り戻すのは最初に信用作るより大変なんだ。";
@@ -104,6 +104,22 @@ function handleEvent(event) {
       "type": "image",
       "originalContentUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGrkIF6eXgAEEIUFFMoel2ddcybmxcQk-ldjtvgGca3kKIPlBq",
       "previewImageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGrkIF6eXgAEEIUFFMoel2ddcybmxcQk-ldjtvgGca3kKIPlBq"
+    });
+  }else if(randam === 14){
+    return client.replyMessage(event.replyToken,{
+      "type": "location",
+      "title": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGrkIF6eXgAEEIUFFMoel2ddcybmxcQk-ldjtvgGca3kKIPlBq",
+      "address": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGrkIF6eXgAEEIUFFMoel2ddcybmxcQk-ldjtvgGca3kKIPlBq",
+      "latitude":35617599,
+      "longitude":139676460
+    });
+  }else if(randam === 15){
+    return client.replyMessage(event.replyToken,{
+      "type": "location",
+      "title": "ここにタイトル",
+      "address": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGrkIF6eXgAEEIUFFMoel2ddcybmxcQk-ldjtvgGca3kKIPlBq",
+      "latitude":35617599,
+      "longitude":139676460
     });
   }
   
