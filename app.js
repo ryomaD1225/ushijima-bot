@@ -110,16 +110,16 @@ function handleEvent(event) {
       "type": "location",
       "title": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGrkIF6eXgAEEIUFFMoel2ddcybmxcQk-ldjtvgGca3kKIPlBq",
       "address": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGrkIF6eXgAEEIUFFMoel2ddcybmxcQk-ldjtvgGca3kKIPlBq",
-      "latitude":35.6694219,
-      "longitude":139.4612045
+      "latitude": "35.6694219",
+      "longitude":"139.4612045"
     });
   }else if(randam === 15){
     return client.replyMessage(event.replyToken,{
       "type": "location",
       "title": "ここにタイトル",
       "address": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGrkIF6eXgAEEIUFFMoel2ddcybmxcQk-ldjtvgGca3kKIPlBq",
-      "latitude":35.6694219,
-      "longitude":139.4612045
+      "latitude": "35.6694219",
+      "longitude": "139.4612045"
     });
   }
   
