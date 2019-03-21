@@ -90,8 +90,8 @@ function handleEvent(event) {
   }else if(randam === 11){
     return client.replyMessage(event.replyToken,{
       "type": "image",
-      "originalContentUrl": "http://livedoor.blogimg.jp/dondonosigoto/imgs/9/6/961e7afe.png",
-      "previewImageUrl": "http://livedoor.blogimg.jp/dondonosigoto/imgs/9/6/961e7afe.png"
+      "originalContentUrl": "https://livedoor.blogimg.jp/dondonosigoto/imgs/9/6/961e7afe.png",
+      "previewImageUrl": "https://livedoor.blogimg.jp/dondonosigoto/imgs/9/6/961e7afe.png"
     });
   }
   
