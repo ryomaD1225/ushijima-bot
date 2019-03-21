@@ -3,11 +3,6 @@
 // line sdkを使うためのsdkを読み込み
 const line = require('@line/bot-sdk');
 
-
-const randomNumber = require("random-number-csprng");//暗号論的疑似乱数生成関数を生成するために追記(https://qiita.com/gakuri/items/27cca8f0fa28b78ddeca)
-var Promise = require("bluebird"); //Bluebird は Promise を扱うためのライブラリ(https://qiita.com/masakielastic/items/025b67d01b3501a5c3fb)
-
-
 // expressはnode.jsで使用できるwebアプリケーションフレームワーク(rails的なやつ)
 const express = require('express');
 
@@ -61,25 +56,24 @@ app.post('/webhook', line.middleware(config), (req, res) => {
 
 //============================test=================================
 
-function handleEvent(event){
-  
-  if(event.type.message==='text'){
+function handleEvent(event) {
+  if (event.type !== 'message' || event.message.type !== 'text') {
     
-    const echo = event.type.message;
-    
-    Promise.try(function() {
-        return randomNumber(10,30);
-    }).then(function(number){
-       client.replyMessage(event.replyToken, number);
-    }).catch({code:"randomNumber Generating Error"}, function(err){
-       client.replyMessage(event.replyToken, echo);
-    });
-    
-  }else{
+    // 成功 -> resolve(渡したい値)
     return Promise.resolve(null);
   }
+
+  var randam = Math.floor(Math.random() * 11);
+  console.log( randam );
+  
+  // const echo = { type: 'text', text: event.message.text };
+   const echo = { type: 'text', text: "金が全てじゃないけど、ほとんどの問題は金で解決できるだろ" };
+
+  // use reply API
+  return client.replyMessage(event.replyToken, echo);
 }
 
+ 
 
 //=================================================================
 
