@@ -93,7 +93,7 @@ function handleEvent(event) {
   }
   
   // const echo = { type: 'text', text: event.message.text };
-   const echo = { type: 'text', text: ushijimaSaying };
+   const echo = { type: 'text', text: randam };
 
   // use reply API
   return client.replyMessage(event.replyToken, echo);
