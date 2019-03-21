@@ -63,37 +63,11 @@ function handleEvent(event) {
     return Promise.resolve(null);
   }
   
-  const ushijimaSaying = event.message.text;
+   var randam = Math.floor(Math.random() * 11);
   
-  // 乱数を生成
-  var randam = Math.floor(Math.random() * 11);
-  
-  if(randam === 0){
-    ushijimaSaying = "一度無くした信用取り戻すのは最初に信用作るより大変なんだ。";
-  }else if(randam === 1){
-    ushijimaSaying = "いいンじゃねーの？敵を作れねェのは善人ぶって自分に嘘を付く弱い人間だ。自分の本心に向き合っている分マシじゃねェーか。";
-  }else if(randam === 2){
-    ushijimaSaying = "死にてぇなら、生命保険、加入してからにしろ。返済がまだだぜ!";
-  }else if(randam === 3){
-    ushijimaSaying = "人にやっちゃいけねえ事なんてねえ。罪を背負う覚悟があればな。";
-  }else if(randam === 4){
-    ushijimaSaying = "人は嘘を平気でつく。行動で示す奴しか俺は信用しねぇ。";
-  }else if(randam === 5){
-    ushijimaSaying = "やる時は徹底的にやれ！！じゃねェーと、全部奪られちまうぞ！";
-  }else if(randam === 6){
-    ushijimaSaying = "テメェのケツはテメェで拭かねェーと人は何も変わらねェーんだ";
-  }else if(randam === 7){
-    ushijimaSaying = "自分がしてきた事の責任を何処かできちんと取れば人は変わる。";
-  }else if(randam === 8){
-    ushijimaSaying = "テメェーみてェなアホを生んだツケに、テメェーの親は100万円払った……\nテメェー自身も100万円分の代償を覚悟しろよ!";
-  }else if(randam === 9){
-    ushijimaSaying = "ギャンブルにハマった奴の明日は信用しねェ!";
-  }else if(randam === 10){
-    ushijimaSaying = "結果なんて、どーでもイイ！\nこのテストは課程が重要なんだ。\n人に答えを求めﾝな！テメーで考えろってコトだ！";
-  }
-  
+   const echo = { type: 'text', text: randam };
   // const echo = { type: 'text', text: event.message.text };
-   const echo = { type: 'text', text: ushijimaSaying };
+
 
   // use reply API
   return client.replyMessage(event.replyToken, echo);
