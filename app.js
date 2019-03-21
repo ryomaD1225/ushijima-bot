@@ -63,12 +63,12 @@ function handleEvent(event) {
     return Promise.resolve(null);
   }
   
-   var randam = Math.floor(Math.random() * 11);
+   var randam = Math.floor(Math.random() * 12);
    
    if(randam === 0){
     randam = "一度無くした信用取り戻すのは最初に信用作るより大変なんだ。";
   }else if(randam === 1){
-    randam = "いいンじゃねーの？敵を作れねェのは善人ぶって自分に嘘を付く弱い人間だ。自分の本心に向き合っている分マシじゃねェーか。";
+    randam = "いいンじゃねーの？敵を作れねェのは善人ぶって自分に嘘を付く弱い人間だ。\n自分の本心に向き合っている分マシじゃねェーか。";
   }else if(randam === 2){
     randam = "死にてぇなら、生命保険、加入してからにしろ。返済がまだだぜ!";
   }else if(randam === 3){
@@ -82,11 +82,17 @@ function handleEvent(event) {
   }else if(randam === 7){
     randam = "自分がしてきた事の責任を何処かできちんと取れば人は変わる。";
   }else if(randam === 8){
-    randam = "テメェーみてェなアホを生んだツケに、テメェーの親は100万円払った……\nテメェー自身も100万円分の代償を覚悟しろよ!";
+    randam = "テメェーみてェなアホを生んだツケに\nテメェーの親は100万円払った……\nテメェー自身も100万円分の代償を覚悟しろよ!";
   }else if(randam === 9){
     randam = "ギャンブルにハマった奴の明日は信用しねェ!";
   }else if(randam === 10){
     randam = "結果なんて、どーでもイイ！\nこのテストは課程が重要なんだ。\n人に答えを求めﾝな！テメーで考えろってコトだ！";
+  }else if(randam === 11){
+    return client.replyMessage(event.replyToken,{
+      "type": "image",
+      "originalContentUrl": "http://livedoor.blogimg.jp/dondonosigoto/imgs/9/6/961e7afe.png",
+      "previewImageUrl": "http://livedoor.blogimg.jp/dondonosigoto/imgs/9/6/961e7afe.png"
+    });
   }
   
    const echo = { type: 'text', text: randam };
