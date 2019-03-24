@@ -9,8 +9,8 @@ const express = require('express');
 
 
 // line Messenger登録時にもらえるトークン諸々
-const defaultAccessToken = 'pvrOp3FU+E2M3bM5HzAvz+m8rh1er/aLXrYRmf38m63SME6AYlKTjEFQDcEw5S83uwym/nFlKC1mG+OdE26JCPdpY0gvzY6UvhgVHxTusSQ/iGpQ2AgesP0tNqeRc+x8pbPYd0jH6JOXm71sm0MVzwdB04t89/1O/w1cDnyilFU=';
-const defaultSecret = 'a624fb16c0828e450002e369a918e859';
+const defaultAccessToken = 'pvrOp3FU+E2M3bM5Hz***************/nFlKC1mG+OdE26JCPdpY0gvzY6UvhgVHxTusSQ/iGpQ2AgesP0tNqeRc+x8pbPYd0jH6JOXm71sm0MVzwdB04t89/1O/w1cDnyilFU=';
+const defaultSecret = 'a624fb1****************918e859';
 
 
 
